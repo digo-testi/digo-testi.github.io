@@ -1,59 +1,68 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-typescript" target="_blank" rel="noopener">typescript</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
-  </div>
+  <v-container>
+    <v-row class="text-center">
+      <v-col class="mt-7">
+        <h1 class="display-2 font-weight-bold">Samylla</h1>
+      </v-col>
+    </v-row>
+    <div class="d-flex justify-center mt-2">
+      <v-img
+        :src="require('../assets/samy.jpg')"
+        class="samyImage mt-2 rounded-circle"
+        contain
+        max-width="320"
+      />
+    </div>
+    <v-row class="text-center mb-5">
+      <v-col cols="12" class="mt-4">
+        <div class="mr-2 ml-2">
+          <h2 class="mb-3">Você conhece essa beldade?</h2>
+          <p class="font-weight-bold">
+            Ela entrou na minha vida de repende, no momento que eu menos
+            esperava.
+          </p>
+          <p class="font-weight-bold">
+            Logo de cara me encantou o seu jeito, não tinha medo de demonstrar o
+            que estava sentindo.
+          </p>
+          <p class="font-weight-bold">
+            Dava pra notar no seu olhar que estava se entregando de coração.
+          </p>
+          <p class="font-weight-bold">
+            De repende já estava amando...
+          </p>
+        </div>
+      </v-col>
+
+      <v-col>
+        <h2 class="mb-2">Quer namorar comigo?</h2>
+        <v-btn @click="noButton = 'Vai sim'" color="primary" class="mr-2">
+          <v-icon left>mdi-thumb-down</v-icon>
+          {{ noButton }}
+        </v-btn>
+        <v-btn color="primary">
+          <v-icon left>mdi-thumb-up</v-icon>
+          Sim
+        </v-btn>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import Vue from "vue";
 
-@Component
-export default class HelloWorld extends Vue {
-  @Prop() private msg!: string;
-}
+export default Vue.extend({
+  name: "HelloWorld",
+
+  data: () => ({
+    noButton: "Não",
+  }),
+});
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.samyImage {
+  width: 70%;
 }
 </style>
